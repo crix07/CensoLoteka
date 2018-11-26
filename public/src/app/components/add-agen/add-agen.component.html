@@ -1,0 +1,265 @@
+<div *ngIf="!locationActived" class="login animated fadeIn" style="margin-top:100px;">
+
+    <div class="formulario animated fadeIn">
+
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="form-box">
+                                <div class="form-top">
+                                    <div class="form-top-center">
+                                        <h3>Agregar Agencia</h3>
+                                    </div>
+
+                                </div>
+                                <div class="form-bottom">
+                                    <form [formGroup]="agencia" (ngSubmit)="agregarAgen()" class="login-form">
+                                        <div class="add_conta">
+                                            <div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">EMPRESA</span>
+                                                    </div>
+                                                    <input type="text" (keyup)="setValues()" formControlName="empresa" name="empresa" placeholder="EMPRESA" class="form-control col-md-8" [ngClass]="{ 'is-invalid': agencia.controls['empresa'].errors?.required && agencia.controls['empresa'].touched }" aria-label="Small"
+                                                        aria-describedby="inputGroup-sizing-sm">
+                                                    <div class="invalid-feedback" *ngIf="agencia.controls['empresa'].errors?.required && agencia.controls['empresa'].touched">
+                                                        La empresa es necesaria.
+                                                    </div>
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-SM">ID TERMINAL</span>
+                                                    </div>
+                                                    <input type="text" (keyup)="setValues()" [ngClass]="{ 'is-invalid': agencia.controls['idterminal'].errors?.required && agencia.controls['idterminal'].touched }" formControlName="idterminal" name="idterminal" placeholder="ID TERMINAL" class="form-control col-md-8"
+                                                        aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                                    <div class="invalid-feedback" *ngIf="agencia.controls['idterminal'].errors?.required && agencia.controls['idterminal'].touched">
+                                                        El ID TERMINAL es necesario.
+                                                    </div>
+                                                </div>
+
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">USUARIO</span>
+                                                    </div>
+                                                    <input type="text" formControlName="usuario" name="usuario" [ngClass]="{ 'is-invalid': agencia.controls['usuario'].errors?.required && agencia.controls['usuario'].touched }" placeholder="USUARIO" class="form-control col-md-8" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                    <div class="invalid-feedback" *ngIf="agencia.controls['usuario'].errors?.required && agencia.controls['usuario'].touched">
+                                                        El Usuario es necesario.
+                                                    </div>
+                                                </div>
+                                                <div class="input-group input-group-sm mb-4">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">PERMISO</span>
+                                                    </div>
+                                                    <input type="text" formControlName="permiso" [ngClass]="{ 'is-invalid': agencia.controls['permiso'].errors?.required && agencia.controls['permiso'].touched }" name="permiso" placeholder="PERMISO" class="form-control col-md-8" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                    <div class="invalid-feedback" *ngIf="agencia.controls['permiso'].errors?.required && agencia.controls['permiso'].touched">
+                                                        El Permiso es necesario.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p>DIRECCIÓN</p>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">REGIÓN</span>
+                                                    </div>
+                                                    <input type="text" formControlName="region" name="region" placeholder="REGIÓN" class="form-control col-md-10" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-SM">PROVINCIA</span>
+                                                    </div>
+                                                    <input type="text" formControlName="provincia" name="provincia" placeholder="PROVINCIA" class="form-control col-md-10" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                                </div>
+
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">MUNICIPIO</span>
+                                                    </div>
+                                                    <input type="text" formControlName="municipio" name="municipio" placeholder="MUNICIPIO" class="form-control col-md-10" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">CIUDAD</span>
+                                                    </div>
+                                                    <input type="text" formControlName="ciudad" name="ciudad" placeholder="CIUDAD" class="form-control col-md-10" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">SECTOR/BARRIO</span>
+                                                    </div>
+                                                    <input type="text" formControlName="sector" name="sector" placeholder="SECTOR/BARRIO" class="form-control col-md-10" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                                <div class="input-group input-group-sm mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="inputGroup-sizing-sm">CALLE</span>
+                                                    </div>
+                                                    <input type="text" formControlName="calle" name="calle" placeholder="CALLE" class="form-control col-md-12" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="input-group input-group-sm mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">REFERENCIA</span>
+                                                </div>
+                                                <input type="text" [ngClass]="{ 'is-invalid': agencia.controls['referencia'].errors?.required && agencia.controls['referencia'].touched }" formControlName="referencia" name="referencia" placeholder="REFERENCIA" class="form-control col-md-10" aria-label="Small"
+                                                    aria-describedby="inputGroup-sizing-sm">
+                                                <div class="invalid-feedback" *ngIf="agencia.controls['referencia'].errors?.required && agencia.controls['referencia'].touched">
+                                                    La Referencia es necesaria.
+                                                </div>
+                                            </div>
+
+                                            <div class="input-group input-group-sm mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-SM">DISTANCIA DE OTRA AGENCIA</span>
+                                                </div>
+                                                <input type="text" formControlName="distanciaRef" name="distanciaRef" placeholder="DISTANCIA DE OTRA AGENCIA" class="form-control col-md-10" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+
+                                            <div class="input-group input-group-sm mb-2">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="inputGroup-sizing-sm">GEOREFERENCIA</span>
+                                                </div>
+                                                <input type="text" formControlName="georeferencia" name="georeferencia" placeholder="GEOREFERENCIA" class="form-control col-md-10" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                                            </div>
+                                        </div>
+
+                                        <div class="container registro" style="text-align: center">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-12">
+                                                        <div>
+                                                            <label type="button" class="btn btn-info btn-lg active" id="seleccionarImagen">
+                  Seleccionar Imágenes <input  type="file" ng2FileSelect [uploader]="uploader" style="display: none;" multiple>
+                  <i class="fas fa-folder-open"></i>
+                </label>
+                                                            <p>Imágenes a subir: {{ uploader?.queue?.length }}</p>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-1"></div>
+                                                            <div class="col-md-10">
+                                                                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" class="well my-drop-zone" style="text-align: center">
+                                                                    <p>Arrastrar imagen aqui...</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-1"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-10">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Nombre</th>
+                                                                        <th>Tamaño</th>
+                                                                        <th>Progreso</th>
+                                                                        <th>Acciones</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr *ngFor="let item of uploader.queue">
+                                                                        <td>{{ item?.file?.name }}</td>
+                                                                        <td>{{item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                                                        <td>
+                                                                            <div class="progress" style="margin-bottom: 0;">
+                                                                                <div class="progress-bar progress-bar-striped bg-info" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button id="botonesTabla" type="button" class="btn btn-secondary" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                        <span class="fa fa-upload"></span> Cargar
+                      </button>
+                                                                            <button id="botonesTabla" type="button" class="btn btn-secondary" (click)="item.remove()">
+                        <span class="fa fa-trash"></span> Eliminar
+                      </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                            <div style="text-align: center">
+                                                                <div>
+                                                                    Barra de Progreso:
+                                                                    <div class="progress" style="">
+                                                                        <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }" aria-valuenow="uploader.progress" aria-valuemin="0" aria-valuemax="100">
+                                                                            {{uploader.progress + '%'}}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                    <span class="fa fa-upload"></span> Cargar Todo
+                  </button>
+                                                                <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                    <span class="fa fa-trash"></span> Eliminar Todo
+                  </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <br><br>
+
+                                            <div class="card text-center " *ngFor=" let usuario  of listaCategorias; let i = index">
+                                                <h3>Imagenes Subidas</h3>
+                                                <p>{{i}}</p>
+                                                <p>{{usuario.imagen}}</p>
+                                                <div class="card-block">
+                                                    <div class="row">
+                                                        <div class="col-md-4" *ngFor="let img of usuario.imagen; let j = index">
+                                                            <img class="card-img-top text-center" [src]="img" width="100" height="100" alt="Card image cap">
+                                                            <p>{{j}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" style="align-self: center; margin-top: 20px; margin-bottom: 20px;" class="btn btn-success">Agregar Agencia</button>
+                                        <button type="button" (click)="locationActived = true" style="align-self: center;margin-top: 20px; margin-bottom: 20px" class="btn">Cambiar Ubicación</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="locationActived" class="form-top-center">
+    <h3>Agregar Ubicación</h3>
+</div>
+
+<!-- <div style="display: flex; justify-content: center;">
+    <input type="text" (keyup)="eligir(lat.value)" #lat placeholder="latitude" class="form-control col-md-2" />
+    <input type="text" (keyup)="eligir(long.value)" #long placeholder="longitude" class="form-control col-md-2" />
+</div> -->
+
+<button *ngIf="locationActived" (click)="siguiente()" class="btn btn-success">Siguiente</button>
+
+<agm-map *ngIf="locationActived" [zoom]="10" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+    <agm-marker *ngIf="locationChosen" [latitude]="latitude" [longitude]="longitude">
+        <agm-info-window>
+            <h6><strong>Detalles de Localización</strong></h6>
+            <p>{{ name_address }}</p>
+        </agm-info-window>
+    </agm-marker>
+</agm-map>

@@ -1,0 +1,90 @@
+<div class="login animated fadeIn" style="margin-top:100px;">
+
+    <div class="formulario animated fadeIn">
+
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="form-box">
+
+
+
+                                <div id="slides" style="opacity: 1;">
+                                    <div style="cursor:pointer;" *ngFor="let image of listaImagenes; let i = index" class="item">
+                                        <img style="max-height: 100%;" [src]="image" class="img-responsive" />
+                                    </div>
+                                </div>
+
+<table class="table">
+    <tbody>
+        <tr class="col-md-12">
+            <th scope="row">EMPRESA</th>
+            <td>{{ agencia?.agencia?.empresa }}</td>
+        </tr>
+        <tr>
+            <th scope="row">ID TERMINAL</th>
+            <td>{{ agencia?.agencia?.idterminal }}</td>
+        </tr>
+        <tr>
+            <th scope="row">USUARIO</th>
+            <td>{{ agencia?.agencia?.usuario }}</td>
+        </tr>
+        <tr>
+            <th scope="row">PERMISO</th>
+            <td>{{ agencia?.agencia?.permiso }}</td>
+        </tr><br><br>
+
+      
+
+        <h6>DIRECCION</h6>
+        <br><br>
+        <tr>
+            <th scope="row">REGION</th>
+            <td>{{ agencia?.agencia?.region }}</td>
+        </tr>
+        <tr>
+            <th scope="row">PROVINCIA</th>
+            <td>{{ agencia?.agencia?.provicia }}</td>
+        </tr>
+        <tr>
+            <th scope="row">MUNICIPIO</th>
+            <td>{{ agencia?.agencia?.municipio }}</td>
+        </tr>
+        <tr>
+            <th scope="row">CIUDAD</th>
+            <td>{{ agencia?.agencia?.ciudad }}</td>
+        </tr>
+        <tr>
+            <th scope="row">SECTOR/BARRIO</th>
+            <td>{{ agencia?.agencia?.sector }}</td>
+        </tr>
+        <tr>
+            <th scope="row">CALLE</th>
+            <td>{{ agencia?.agencia?.calle }}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<agm-map [zoom]="10" style="width: 100%;" [latitude]="latitude" [longitude]="longitude">
+    <agm-marker *ngIf="locationChosen" [latitude]="latitude" [longitude]="longitude">
+        <agm-info-window>
+            <h6><strong>Detalles de Ubicación</strong></h6>
+            <p>{{ name_address }}</p>
+        </agm-info-window>
+    </agm-marker>
+</agm-map>
+

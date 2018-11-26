@@ -1,0 +1,90 @@
+<div class="login animated fadeIn" style="margin-top:100px;">
+
+    <div class="formulario animated fadeIn">
+
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="form-box">
+                                <div class="form-top">
+                                    <div class="form-top-center">
+                                        <h3>INICIO SESIÓN</h3>
+                                        <p>Ingrese correo y contraseña para iniciar sesión.</p>
+                                    </div>
+                                </div>
+                                <div class="form-bottom">
+                                    <form [formGroup]="loginForm" (ngSubmit)="loginFire()" class="login-form">
+
+                                        <div class="form-group" style="display: flex; align-items: center;">
+                                            <i style="margin-right: 20px; color: #fc7a00; font-size: 25px;" class="fas fa-envelope"></i>
+                                            <input type="text" formControlName="email" name="email" placeholder="Correo Electrónico" class="form-username form-control">
+                                        </div>
+
+                                        <div *ngIf="emailLogin.invalid && emailLogin.dirty">
+                                            Tu correo electrónico no se ve del todo bien...
+                                        </div>
+
+                                        <div style="display: flex; align-items: center;" class="form-group">
+                                            <i style="margin-right: 20px; color: #fc7a00; font-size: 25px;" class="fas fa-lock"></i>
+                                            <input type="password" formControlName="password" name="password" placeholder="Contraseña" class="form-password form-control">
+                                        </div>
+
+                                        <button type="submit" style="background-color: rgba(0, 140, 255, 0.959); color: #fff;" [disabled]="!loginForm.valid" class="btn">INICIAR SESIÓN</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-sm-1 middle-border"></div>
+                        <div class="col-sm-1"></div> -->
+<!-- 
+                        <div class="col-sm-5">
+
+                            <div class="form-box">
+                                <div class="form-top">
+                                    <div class="form-top-left">
+                                        <h3>REGISTRO</h3>
+                                        <p>Complete el siguiente formulario para obtener acceso instantáneo</p>
+                                    </div>
+                                    <div class="form-top-right">
+                                        <i class="fa fa-pencil"></i>
+                                    </div>
+                                </div>
+                                <div class="form-bottom">
+                                    <form [formGroup]="registroForm" (ngSubmit)="registroFire()" class="registration-form">
+                                        <div style="display: flex; align-items: center;" class="form-group">
+                                            <i style="margin-right: 20px; color: #fc7a00; font-size: 25px;" class="fas fa-envelope"></i>
+                                            <input type="text" name="email" formControlName="email" placeholder="Correo Electrónico" class="form-email form-control">
+                                        </div>
+
+                                        <div *ngIf="emailRegistro.invalid && emailRegistro.dirty">
+                                            <p style="color: red;">Tu correo electrónico no se ve del todo bien...</p>
+                                        </div>
+
+                                        <div style="display: flex; align-items: center;" class="form-group">
+                                            <i style="margin-right: 20px; color: #fc7a00; font-size: 25px;" class="fas fa-lock"></i>
+                                            <input type="password" formControlName="password" name="password" placeholder="Contraseña" class="form-password form-control">
+                                        </div>
+
+                                        <div *ngIf="passwordRegistro.invalid && passwordRegistro.touched">
+                                            <p style="color: red;">La contraseña debe tener entre 6 y 24 caracteres y tener al menos un número</p>
+                                        </div>
+
+
+                                        <button type="submit" style="background-color: rgba(0, 140, 255, 0.959); color: #fff;" [disabled]="!registroForm.valid" class="btn">REGISTRAR CUENTA</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

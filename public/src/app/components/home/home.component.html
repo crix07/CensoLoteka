@@ -1,0 +1,31 @@
+<app-sidebar (AgenciaClick)="VerAgencia($event)"></app-sidebar>
+<agm-map [zoom]="10" [latitude]="latitude" [longitude]="longitude">
+    <agm-marker style="color: #4285f4; " (markerClick)="openWindow(k)" *ngFor="let k of _userservice.agencias | keys; let i = index" [latitude]="_userservice.agencias[k].agencia.latitude" [longitude]="_userservice.agencias[k].agencia.longitude">
+        <agm-info-window [maxWidth]="350" [isOpen]="isInfoWindowOpen(k)" [latitude]="_userservice.agencias[k].agencia.latitude" [longitude]="_userservice.agencias[k].agencia.longitude">
+            <h6><strong>Detalles de Ubicación</strong></h6>
+
+            <ngb-carousel *ngIf="_userservice.agencias">
+                <ng-template *ngFor="let image of _userservice.agencias[k].images" ngbSlide>
+                    <img style="width: 300px;" [src]="image" alt="Random second slide">
+                </ng-template>
+            </ngb-carousel>
+
+            <p>{{ _userservice.agencias[k].agencia.calle }}</p>
+            <div style="display: flex; justify-content: space-around;">
+                <a (click)="viewAgen(k)" class="btn">
+                    <span><strong style="color: #fc7a00;">Ver</strong></span>
+                </a>
+                <a *ngIf="_userservice.usuario" (click)="editAgen(k)" class="btn">
+                    <span><strong style="color: #4285f4;">Editar</strong></span>
+                </a>
+                <a *ngIf="_userservice.usuario" (click)="deleteAgen(k)" class="btn">
+                    <span><strong style="color: #dc3545;">Eliminar</strong></span>
+                </a>
+            </div>
+        </agm-info-window>
+    </agm-marker>
+</agm-map>
+
+<div *ngIf="_userservice.usuario" class="pointer" (click)="addAgen()" style="background-color: #4D86B7; border-radius: 100%;justify-content: center;align-items: center;display: flex;width: 50px;height: 50px;position: fixed;bottom: 10px;right: 10px;">
+    <i style="padding: 10px; color: white; font-size: 20px;" class="fas fa-plus"></i>
+</div>
